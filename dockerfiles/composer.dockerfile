@@ -12,6 +12,8 @@ ENV USER=${USER}
 RUN delgroup dialout
 
 RUN addgroup -g ${GID} --system ${USER}
-RUN adduser -G ${USER} --system -D -s /bin/sh -u ${UID} ${USER}
+#RUN adduser -G ${USER} --system -D -s /bin/sh -u ${UID} ${USER}
+    #0.328 adduser: uid '123' in use
+    #failed to solve: process "/bin/sh -c adduser -G ${USER} --system -D -s /bin/sh -u ${UID} ${USER}" did not complete successfully: exit code: 1
 
 WORKDIR /var/www/html

@@ -17,6 +17,8 @@ RUN delgroup dialout
 
 RUN addgroup -g ${GID} --system ${USER}
 #RUN adduser -G ${USER} --system -D -s /bin/sh -u ${UID} ${USER}
+    #0.541 adduser: uid '123' in use
+    #failed to solve: process "/bin/sh -c adduser -G ${USER} --system -D -s /bin/sh -u ${UID} ${USER}" did not complete successfully: exit code: 1
 
 RUN sed -i "s/user = www-data/user = ${USER}/g" /usr/local/etc/php-fpm.d/www.conf
 RUN sed -i "s/group = www-data/group = ${USER}/g" /usr/local/etc/php-fpm.d/www.conf
